@@ -5,17 +5,39 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Contact Us</ion-title>
-  </ion-navbar>
-
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Contact Us</ion-title>
+	</ion-navbar>
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+	<ion-card>
+		<ion-card-header color="primary">
+			Our Address
+		</ion-card-header>
+		<ion-card-content>
+			121, Clear Water Bay Road<br />
+			Clear Water Bay, Kowloon<br />
+			HONG KONG<br />
+			<ion-icon name="call"> </ion-icon> Tel: +852 1234 5678<br />
+			<ion-icon name="print"> </ion-icon> Fax: +852 8765 4321<br />
+			<ion-icon name="mail"> </ion-icon> Email:confusion@food.net<br />
+		</ion-card-content>
+		<ion-row>
+			<ion-col>
+				<button ion-button icon-left clear small>
+					<ion-icon name="call"></ion-icon>
+					<div>CALL</div>
+				</button>
+			</ion-col>
+			<ion-col>
+				<button ion-button icon-left clear small>
+					<ion-icon name="mail"></ion-icon>
+					<div>EMAIL</div>
+				</button>
+			</ion-col>
+		</ion-row>
+	</ion-card>
 </ion-content>
