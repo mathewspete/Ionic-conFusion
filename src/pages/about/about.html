@@ -31,21 +31,35 @@
 			<ion-card-header color="primary">
 				Corporate Leadership
 			</ion-card-header>
-				<ion-item *ngFor="let leader of leaders">
-					<ion-avatar item-start>
-						<img src="{{BaseURL + leader.image}}" />
-					</ion-avatar>
-					<ion-card-content text-wrap>
-						<h2>{{leader.name}}</h2>
-						<h3>{{leader.designation}}</h3>
-						<p>{{leader.description}}</p>
-					</ion-card-content>
-				</ion-item>
+			<ion-item *ngFor="let leader of leaders">
+				<ion-avatar item-start>
+					<img src="{{BaseURL + leader.image}}" />
+				</ion-avatar>
+				<ion-card-content text-wrap>
+					<h2>{{leader.name}}</h2>
+					<h3>{{leader.designation}}</h3>
+					<p>{{leader.description}}</p>
+				</ion-card-content>
+			</ion-item>
 		</ion-card>
 	</div>
 	<div [hidden]="leaders || errMess">
-		<ion-spinner></ion-spinner>
-		<h4>Loading . . . Please Wait</h4>
+		<ion-grid>
+			<ion-row>
+				<ion-col></ion-col>
+				<ion-col col-auto>
+					<ion-spinner></ion-spinner>
+				</ion-col>
+				<ion-col></ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col></ion-col>
+				<ion-col col-auto>
+					<h4>Loading . . . Please Wait</h4>
+				</ion-col>
+				<ion-col></ion-col>
+			</ion-row>
+		</ion-grid>
 	</div>
 	<div *ngIf="errMess">
 		<h2>Error</h2>
