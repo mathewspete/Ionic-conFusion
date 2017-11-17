@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { FavoriteProvider } from '../../providers/favorite/favorite';
 import { Dish } from '../../shared/dish';
 import { Comment } from '../../shared/comment';
-import { FavoriteProvider } from '../../providers/favorite/favorite';
 
 /**
  * Generated class for the DishdetailPage page.
@@ -21,16 +21,20 @@ export class DishdetailPage {
   errMess: string;
   avgstars: string;
   numcomments: number;
-  favorite: boolean;
+  favorite: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    @Inject('BaseURL') private BaseURL,
-    private favoriteservice: FavoriteProvider) {
-    this.dish = navParams.get('dish');
-    this.favorite = favoriteservice.isFavorite(this.dish.id);
-    this.numcomments = this.dish.comments.length;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private favoriteservice: FavoriteProvider,
+              private toastCtrl: ToastController,
+              @Inject('BaseURL') private BaseURL) {
     let total = 0;
-    this.dish.comments.forEach(comment => total += comment.rating );
+    this.dish = this.navParams.get('dish');
+    this.favorite = this.favoriteservice.isFavorite(this.dish.id);
+    this.numcomments = this.dish.comments.length;
+    //get total
+    this.dish.comments.map((comment) => { total +=  comment.rating; });
+    //get avg starts
     this.avgstars = (total/this.numcomments).toFixed(2);
   }
 
@@ -39,8 +43,15 @@ export class DishdetailPage {
   }
 
   addToFavorites() {
-    console.log('Adding to Favorites', this.dish.id);
+    console.log("adding to favorites", this.dish.id);
     this.favorite = this.favoriteservice.addFavorite(this.dish.id);
+    this.toastCtrl.create({
+        message: this.dish.name + " added as a favorite!",
+        duration: 3000,
+        position: 'middle',
+      })
+      .present();
+
   }
 
 }

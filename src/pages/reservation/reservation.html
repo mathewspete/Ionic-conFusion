@@ -5,16 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>reservation</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-	<ion-toolbar color="primary-pale">
+  <ion-toolbar color="primary-pale">
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
@@ -23,7 +14,11 @@
     </ion-buttons>
     <ion-title>Reserve Table</ion-title>
   </ion-toolbar>
+</ion-header>
 
+
+
+<ion-content padding>
   <form [formGroup]="reservation" (ngSubmit)="onSubmit()">
       <ion-item>
         <ion-label>No. of Guests</ion-label>

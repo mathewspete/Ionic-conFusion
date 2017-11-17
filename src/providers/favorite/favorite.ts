@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-
 import { Dish } from '../../shared/dish';
 import { Observable } from 'rxjs/Observable';
 import { DishProvider } from '../dish/dish';
 
+import 'rxjs/add/operator/map';
 /*
   Generated class for the FavoriteProvider provider.
 
