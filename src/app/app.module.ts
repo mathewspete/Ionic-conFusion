@@ -7,18 +7,19 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
-import { MenuPage } from '../pages/menu/menu';
+import { CommentPage } from '../pages/comment/comment';
 import { ContactPage } from '../pages/contact/contact';
 import { DishdetailPage } from '../pages/dishdetail/dishdetail';
 import { FavoritesPage } from '../pages/favorites/favorites';
+import { MenuPage } from '../pages/menu/menu';
 import { ReservationPage } from '../pages/reservation/reservation';
 
+
 import { DishProvider } from '../providers/dish/dish';
+import { FavoriteProvider } from '../providers/favorite/favorite';
 import { LeaderProvider } from '../providers/leader/leader';
 import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-httpmsg';
 import { PromotionProvider } from '../providers/promotion/promotion';
-//import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-httpmsg';
-import { FavoriteProvider } from '../providers/favorite/favorite';
 
 import { baseURL } from '../shared/baseurl';
 
@@ -29,10 +30,11 @@ import { MyApp } from './app.component';
     MyApp,
     HomePage,
     AboutPage,
-    MenuPage,
     ContactPage,
+    CommentPage,
     DishdetailPage,
     FavoritesPage,
+    MenuPage,
     ReservationPage
   ],
   imports: [
@@ -45,10 +47,11 @@ import { MyApp } from './app.component';
     MyApp,
     HomePage,
     AboutPage,
-    MenuPage,
     ContactPage,
+    CommentPage,
     DishdetailPage,
     FavoritesPage,
+    MenuPage,
     ReservationPage
   ],
   providers: [
