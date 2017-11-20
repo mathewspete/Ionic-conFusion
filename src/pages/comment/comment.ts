@@ -17,33 +17,33 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 export class CommentPage {
 
 
-	commentForm: FormGroup;
+  commentForm: FormGroup;
 
-  	constructor(public navCtrl: NavController,
-  	            public navParams: NavParams,
-  	            public viewCtrl: ViewController,
-  	            private formBuilder: FormBuilder) {
-  		this.commentForm = this.formBuilder.group({
-  			author: ["", Validators.required],
-  			rating: [5, Validators.required],
-  			comment: ["", Validators.required],
-  			date: "",
-      	});
-  	}
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public viewCtrl: ViewController,
+                private formBuilder: FormBuilder) {
+      this.commentForm = this.formBuilder.group({
+        author: ["", Validators.required],
+        rating: [5, Validators.required],
+        comment: ["", Validators.required],
+        date: "",
+        });
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CommentPage');
   }
 
   dismiss() {
-  	this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss();
   }
 
   onSubmit() {
-  	console.log(this.commentForm);
-  	this.commentForm.value.date = new Date().toISOString();
-  	console.log(this.commentForm);
-  	this.viewCtrl.dismiss(this.commentForm.value);
+    console.log(this.commentForm);
+    this.commentForm.value.date = new Date().toISOString();
+    console.log(this.commentForm);
+    this.viewCtrl.dismiss(this.commentForm.value);
   }
 
 }
