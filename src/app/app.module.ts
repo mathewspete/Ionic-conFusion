@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
@@ -11,6 +12,7 @@ import { CommentPage } from '../pages/comment/comment';
 import { ContactPage } from '../pages/contact/contact';
 import { DishdetailPage } from '../pages/dishdetail/dishdetail';
 import { FavoritesPage } from '../pages/favorites/favorites';
+import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
 import { ReservationPage } from '../pages/reservation/reservation';
 
@@ -34,13 +36,15 @@ import { MyApp } from './app.component';
     CommentPage,
     DishdetailPage,
     FavoritesPage,
+    LoginPage,
     MenuPage,
     ReservationPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,6 +55,7 @@ import { MyApp } from './app.component';
     CommentPage,
     DishdetailPage,
     FavoritesPage,
+    LoginPage,
     MenuPage,
     ReservationPage
   ],
