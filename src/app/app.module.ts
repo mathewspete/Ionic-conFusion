@@ -5,6 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { Camera } from '@ionic-native/camera';
+import { Network } from '@ionic-native/network';
 
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
@@ -14,8 +19,8 @@ import { DishdetailPage } from '../pages/dishdetail/dishdetail';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
+import { RegisterPage } from '../pages/register/register';
 import { ReservationPage } from '../pages/reservation/reservation';
-
 
 import { DishProvider } from '../providers/dish/dish';
 import { FavoriteProvider } from '../providers/favorite/favorite';
@@ -38,6 +43,7 @@ import { MyApp } from './app.component';
     FavoritesPage,
     LoginPage,
     MenuPage,
+    RegisterPage,
     ReservationPage
   ],
   imports: [
@@ -57,6 +63,7 @@ import { MyApp } from './app.component';
     FavoritesPage,
     LoginPage,
     MenuPage,
+    RegisterPage,
     ReservationPage
   ],
   providers: [
@@ -68,7 +75,12 @@ import { MyApp } from './app.component';
     PromotionProvider,
     ProcessHttpmsgProvider,
     { provide: 'BaseURL', useValue: baseURL },
-    FavoriteProvider
+    FavoriteProvider,
+    LocalNotifications,
+    EmailComposer,
+    SocialSharing,
+    Camera,
+    Network
   ]
 })
 export class AppModule {}
