@@ -46,7 +46,7 @@ export class DishdetailPage {
   }
 
   addToFavorites() {
-    console.log("adding to favorites", this.dish.id);
+    console.log("adding to favorites", this.dish.name);
     this.favorite = this.favoriteservice.addFavorite(this.dish.id);
     this.toastCtrl.create({
         message: this.dish.name + " added as a favorite!",
@@ -56,26 +56,29 @@ export class DishdetailPage {
       .present();
   }
 
+  openComment() { let modal = this.modalCtrl.create(CommentPage);
+    modal.onDidDismiss((item) => {
+      if(item){
+        this.dish.comments.push(item);
+      }
+    });
+    modal.present();
+  }
+
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Available Actions',
       buttons: [
         {
           text: 'Add to Favorites',
-          handler: () => addToFavorites()
+          handler: () => {this.addToFavorites();}
         },
         {
           text: 'Add a Comment',
           handler: () => {
+            this.openComment();
             console.log('Add a Comment clicked');
-            let commentmodal = this.modalCtrl.create(CommentPage);
-            commentmodal.present();
-            commentmodal.onDidDismiss( data => {
-              if (!data) return;
-                this.dish.comments.push(data);
-            });
           }
-
         },
         {
           text: 'Cancel',

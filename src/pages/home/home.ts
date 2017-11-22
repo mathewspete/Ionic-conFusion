@@ -33,9 +33,10 @@ export class HomePage implements OnInit {
     this.promotionservice.getFeaturedPromotion()
       .subscribe(promotion => this.promotion = promotion,
         errmess => this.promoErrMess = <any>errmess );
-    this.leaderservice.getFeaturedLeader()
+    this.leaderservice
+      .getFeaturedLeader()
       .subscribe(leader => this.leader = leader,
-        errmess => this.leaderErrMess = <any>errmess );
+                 errmess => this.leaderErrMess = <any>errmess );
 
   }
 

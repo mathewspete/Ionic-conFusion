@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { Storage } from '@ionic/storage';
 import { Dish } from '../../shared/dish';
 import { Observable } from 'rxjs/Observable';
 import { DishProvider } from '../dish/dish';
 
-import 'rxjs/add/operator/map';
+
 /*
   Generated class for the FavoriteProvider provider.
 
@@ -17,14 +19,26 @@ export class FavoriteProvider {
   favorites: Array<any>;
 
   constructor(public http: Http,
+    private storage: Storage,
     private dishservice: DishProvider) {
     console.log('Hello FavoriteProvider Provider');
     this.favorites = [];
+    this.storage.get('favorites').then(favorites => {
+      if (favorites) {
+        console.log(this.favorites);
+        this.favorites = favorites;
+      }
+      else {
+        console.log('favorites not defined');
+      }
+    });
   }
 
   addFavorite(id: number): boolean {
-    if (!this.isFavorite(id))
-      this.favorites.push(id);
+    if (!this.isFavorite(id)) {
+        this.favorites.push(id);
+        this.storage.set("favorites", this.favorites);
+      }
     console.log('favorites', this.favorites);
     return true;
   }
@@ -34,6 +48,7 @@ export class FavoriteProvider {
   }
 
   getFavorites(): Observable<Dish[]> {
+     //matches favorites array up to every dish id, filtering out the non-favorites from our dishes array. then maps it to our observable 
     return this.dishservice.getDishes()
       .map(dishes => dishes.filter(dish => this.favorites.some(el => el === dish.id)));
   }
@@ -42,6 +57,7 @@ export class FavoriteProvider {
     let index = this.favorites.indexOf(id);
     if (index >= 0) {
       this.favorites.splice(index,1);
+      this.storage.set("favorites", this.favorites);
       return this.getFavorites();
     }
     else {
