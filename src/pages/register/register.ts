@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
@@ -18,7 +18,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class RegisterPage {
 
   registerForm: FormGroup;
-  image: string = 'assets/images/logo.png';
+  image: string = 'assets/imgs/logo.png';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private viewCtrl: ViewController,

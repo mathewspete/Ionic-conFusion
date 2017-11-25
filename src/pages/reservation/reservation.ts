@@ -16,30 +16,30 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ReservationPage {
 
-  	reservation: FormGroup;
+    reservation: FormGroup;
 
-  	constructor(public navCtrl: NavController,
-  	            public navParams: NavParams,
-  	            public viewCtrl: ViewController,
-  	            private formBuilder: FormBuilder) {
-  		this.reservation = this.formBuilder.group({
-        	guests: 3,
-        	smoking: false,
-        	dateTime: ['', Validators.required],
-      	});
-  	}
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public viewCtrl: ViewController,
+                private formBuilder: FormBuilder) {
+      this.reservation = this.formBuilder.group({
+          guests: 3,
+          smoking: false,
+          dateTime: ['', Validators.required],
+        });
+    }
 
-  	ionViewDidLoad() {
-    	console.log('ionViewDidLoad ReservationPage');
-  	}
+    ionViewDidLoad() {
+      console.log('ionViewDidLoad ReservationPage');
+    }
 
-  	dismiss() {
-  		this.viewCtrl.dismiss();
-  	}
-  	onSubmit() {
-    	console.log(this.reservation.value);
-    	this.viewCtrl.dismiss();
-  	}
+    dismiss() {
+      this.viewCtrl.dismiss();
+    }
+    onSubmit() {
+      console.log(this.reservation.value);
+      this.viewCtrl.dismiss();
+    }
 
 
 }
