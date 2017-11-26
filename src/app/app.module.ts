@@ -21,6 +21,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { CallNumber } from '@ionic-native/call-number';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Camera } from '@ionic-native/camera';
 import { Network } from '@ionic-native/network';
@@ -43,7 +44,6 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     ReservationPage,
     FavoritesPage,
     CommentPage,
-  //  RegistrationPage,
     LoginPage,
     RegisterPage
   ],
@@ -64,7 +64,6 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     ReservationPage,
     FavoritesPage,
     CommentPage,
-  //  RegistrationPage,
     LoginPage,
     RegisterPage
   ],
@@ -80,6 +79,7 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     { provide: 'BaseURL', useValue: baseURL },
     FavoriteProvider,
     EmailComposer,
+    CallNumber,
     SocialSharing,
     Camera,
     Network
